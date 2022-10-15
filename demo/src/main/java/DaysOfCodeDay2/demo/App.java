@@ -17,7 +17,7 @@ public class App {
         String apiLink = "https://imdb-api.com/en/API/Top250TVs/";
         int successCode = 200;
         int maxSize = 250;
-        String token = "k_e3cl21m0/";
+        String token = "you key";
         String urlToCall = apiLink + token;
         List<String> filmes = new ArrayList<>();
         List<String> filmesTitulo = new ArrayList<>();
