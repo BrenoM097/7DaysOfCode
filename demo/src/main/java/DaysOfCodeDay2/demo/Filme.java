@@ -16,11 +16,19 @@ public class Filme {
         this.year = year;
     }
 
-
-    public String getAll() {
-       String agroup = title + "\n" + image + "\n" + rating + "\n" + year;
-        return agroup;
+    public String getTitle() {
+        return title;
     }
 
+    public String getImage() {
+        return image;
+    }
 
+    public String getRating() {
+        return rating;
+    }
+
+    public String getYear() {
+        return year;
+    }
 }

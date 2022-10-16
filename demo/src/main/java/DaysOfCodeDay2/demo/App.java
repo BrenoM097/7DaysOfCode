@@ -1,6 +1,7 @@
 package DaysOfCodeDay2.demo;
 
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -12,12 +13,12 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         String apiLink = "https://imdb-api.com/en/API/Top250TVs/";
         int successCode = 200;
         int maxSize = 250;
-        String token = "you key";
+        String token = "your key"; 
         String urlToCall = apiLink + token;
         List<String> filmes = new ArrayList<>();
         List<String> filmesTitulo = new ArrayList<>();
@@ -25,7 +26,10 @@ public class App {
         List<String> filmesAno = new ArrayList<>();
         List<String> filmesRating = new ArrayList<>();
         List<Filme> filmeUnico = new ArrayList<>();
-        
+
+        FileWriter writer = new FileWriter("filme.html");
+       // Writer writer1 = new PrintWriter(System.out);
+        HTMLGenerator htmlGenerator = new HTMLGenerator(writer);
 
         try {
 
@@ -58,16 +62,21 @@ public class App {
         String [] atributos = filmes.toString().split(",");
 
 
+
     //for encadeado que pega o titulo e url da imagem e coloca em uma lista
     for(String x : atributos) {
         if(x.contains("title")) {
-            filmesTitulo.add(x);
+            filmesTitulo.add(x.substring(9, x.length() - 1));
+
         }else if(x.contains("image")) {
-            filmesImageUrl.add(x);
+            filmesImageUrl.add(x.substring(9, x.length() - 1));
+
       }else if(x.contains("imDbRating")) {
-            filmesRating.add(x);
+            filmesRating.add(x.substring(14, x.length() - 1));
+
         }else if(x.contains("year")) {
-            filmesAno.add(x);
+            filmesAno.add(x.substring(8, x.length() - 1));
+
         }
     }
 
@@ -76,9 +85,13 @@ public class App {
 
             }
 
+            //System.out.println(filmeUnico.get(0).getRating());
+            htmlGenerator.generate(filmeUnico, 32);
 
-            System.out.println(filmeUnico.get(8).getAll());
+            //System.out.println(filmeUnico.get(8).getAll());
 
+
+            writer.flush();
 
 
 
@@ -89,4 +102,6 @@ public class App {
 
 
     }
+
 }
+
