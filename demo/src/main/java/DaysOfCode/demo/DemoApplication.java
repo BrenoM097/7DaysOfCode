@@ -1,4 +1,4 @@
-package DaysOfCodeDay2.demo;
+package DaysOfCode.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

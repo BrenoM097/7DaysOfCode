@@ -1,4 +1,4 @@
-package DaysOfCodeDay2.demo;
+package DaysOfCode.demo;
 
 public class Filme {
 

@@ -1,4 +1,4 @@
-package DaysOfCodeDay2.demo;
+package DaysOfCode.demo;
 
 import java.io.IOException;
 import java.io.Writer;
