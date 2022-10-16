@@ -18,7 +18,7 @@ public class App {
         String apiLink = "https://imdb-api.com/en/API/Top250TVs/";
         int successCode = 200;
         int maxSize = 250;
-        String token = "your key"; 
+        String token = "your key"; //"/"
         String urlToCall = apiLink + token;
         List<String> filmes = new ArrayList<>();
         List<String> filmesTitulo = new ArrayList<>();
@@ -80,19 +80,17 @@ public class App {
         }
     }
 
+            //monta a lista de filme completa
             for(int i = 0; i < maxSize; i++) {
                 filmeUnico.add(new Filme(filmesTitulo.get(i), filmesImageUrl.get(i), filmesRating.get(i), filmesAno.get(i)));
 
             }
 
-            //System.out.println(filmeUnico.get(0).getRating());
+            //gera o arquivo .html com os dados do filme + o codigo html e css
             htmlGenerator.generate(filmeUnico, 32);
-
-            //System.out.println(filmeUnico.get(8).getAll());
-
-
             writer.flush();
-
+            //abre automaticamente o arquivo gerado no bloco acima
+            java.awt.Desktop.getDesktop().open(new File("C:\\estudos\\7DaysOfCode\\demo\\filme.html"));
 
 
 
