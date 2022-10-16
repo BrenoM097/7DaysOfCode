@@ -18,7 +18,6 @@ public class ImdbApiClient {
 
 
     public void connect() throws IOException, InterruptedException {
-
         //Criando a Url com base no link montado e fazendo a conexão.
         URI apiIMDB = URI.create(URLTOCALL);
 

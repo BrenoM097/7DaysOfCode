@@ -17,7 +17,6 @@ public class App {
         ImdbJsonParser imdbJsonParser = new ImdbJsonParser();
 
         try {
-
             apiClient.connect();
             imdbJsonParser.parseJson(apiClient.getJsonBody());
 
@@ -28,7 +27,7 @@ public class App {
              System.out.println("Connection Successful!");
 
                  //gera o arquivo .html com os dados do filme + o codigo html e css.
-                htmlGenerator.generate(imdbJsonParser.getFilmeList(), 5); // o inteiro passado é para selecionar o filme desejado dentre os 250.
+                htmlGenerator.generate(imdbJsonParser.getFilmeList(), 4); // o inteiro passado é para selecionar o filme desejado dentre os 250.
                 writer.flush();
                 //abre automaticamente o arquivo gerado.
                 java.awt.Desktop.getDesktop().open(new File("C:\\estudos\\7DaysOfCode\\demo\\filme.html"));

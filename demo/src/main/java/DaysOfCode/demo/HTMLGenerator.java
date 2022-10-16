@@ -50,13 +50,10 @@ public class HTMLGenerator {
                             </div>
                             """;
 
-    public String generate(List<Filme> filme, int i) throws IOException {
-
+    public void generate(List<Filme> filme, int i) throws IOException {
         if(i > 249) { System.out.println("Informe um numero igual ou menor a 149, por favor!"); }
 
-
          writer.write(String.format(divTemplate, filme.get(i).getTitle(), filme.get(i).getImage(), filme.get(i).getTitle(), filme.get(i).getRating(), filme.get(i).getYear()));
-        return null;
     }
 
 }

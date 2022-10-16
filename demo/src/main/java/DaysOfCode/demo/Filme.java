@@ -1,7 +1,6 @@
 package DaysOfCode.demo;
 
 public class Filme {
-
     private final String title;
     private final String image;
 
