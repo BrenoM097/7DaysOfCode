@@ -20,6 +20,7 @@ public class App {
         int maxSize = 250;
         String token = "your key"; //"/"
         String urlToCall = apiLink + token;
+
         List<String> filmes = new ArrayList<>();
         List<String> filmesTitulo = new ArrayList<>();
         List<String> filmesImageUrl = new ArrayList<>();
@@ -28,21 +29,20 @@ public class App {
         List<Filme> filmeUnico = new ArrayList<>();
 
         FileWriter writer = new FileWriter("filme.html");
-       // Writer writer1 = new PrintWriter(System.out);
         HTMLGenerator htmlGenerator = new HTMLGenerator(writer);
 
         try {
 
-        //Criando a Url com base no link montado e fazendo a conexão
+        //Criando a Url com base no link montado e fazendo a conexão.
         URI apiIMDB = URI.create(urlToCall);
 		
-        //criando conexão
+        //criando conexão.
 		HttpClient client = HttpClient.newHttpClient();
 		HttpRequest request = HttpRequest.newBuilder().uri(apiIMDB).build();
 
 		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        //Se o codigo não for 200, joga um erro
+        //Se o codigo não for 200, joga um erro.
         if(response.statusCode() != successCode){
             throw new RuntimeException("HTTP ERROR CODE: " + response.statusCode());
         }
@@ -51,7 +51,7 @@ public class App {
 
 		String json = response.body();
 
-        //bloco de codigo que pega apenas o que está dentro de {} no json completo
+        //bloco de codigo que pega apenas o que está dentro de {} no json completo.
         Pattern p = Pattern.compile("\\{([^}]+?)}");
         Matcher matcher = p.matcher(json);
         while(matcher.find()) {
@@ -63,7 +63,7 @@ public class App {
 
 
 
-    //for encadeado que pega o titulo e url da imagem e coloca em uma lista
+    //for encadeado que pega os atributos e coloca em uma lista separada para cada um.
     for(String x : atributos) {
         if(x.contains("title")) {
             filmesTitulo.add(x.substring(9, x.length() - 1));
@@ -80,16 +80,16 @@ public class App {
         }
     }
 
-            //monta a lista de filme completa
+            //junta as listas separadas criando um objeto Filme para cada grupo de atributos.
             for(int i = 0; i < maxSize; i++) {
                 filmeUnico.add(new Filme(filmesTitulo.get(i), filmesImageUrl.get(i), filmesRating.get(i), filmesAno.get(i)));
 
             }
 
-            //gera o arquivo .html com os dados do filme + o codigo html e css
-            htmlGenerator.generate(filmeUnico, 32);
+            //gera o arquivo .html com os dados do filme + o codigo html e css.
+            htmlGenerator.generate(filmeUnico, 32); // o inteiro passado é para selecionar o filme desejado dentre os 250.
             writer.flush();
-            //abre automaticamente o arquivo gerado no bloco acima
+            //abre automaticamente o arquivo gerado.
             java.awt.Desktop.getDesktop().open(new File("C:\\estudos\\7DaysOfCode\\demo\\filme.html"));
 
 
