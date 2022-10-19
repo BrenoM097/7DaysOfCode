@@ -6,7 +6,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class ImdbApiClient {
+public class ImdbApiClient implements Connector{
    private final String URLTOCALL;
     private String json;
 

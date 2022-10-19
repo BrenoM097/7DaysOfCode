@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ImdbJsonParser {
+public class ImdbJsonParser implements JsonParser{
     private final List<String> filmes = new ArrayList<>();
     private final List<String> filmesTitulo = new ArrayList<>();
     private final List<String> filmesImageUrl = new ArrayList<>();
@@ -15,7 +15,7 @@ public class ImdbJsonParser {
     private final List<Filme> filmeUnico = new ArrayList<>();
 
 
-
+    @Override
     public void parseJson(String json) {
          final int MAXSIZE = 250;
 
@@ -51,7 +51,7 @@ public class ImdbJsonParser {
 
         }
     }
-
+    @Override
     public List<Filme> getFilmeList() {
         return filmeUnico;
     }
