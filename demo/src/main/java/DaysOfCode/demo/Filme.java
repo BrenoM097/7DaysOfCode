@@ -1,6 +1,7 @@
 package DaysOfCode.demo;
 
-public class Filme implements Content {
+
+public class Filme implements Content, Comparable<Filme> {
     private final String title;
     private final String image;
 
@@ -32,4 +33,12 @@ public class Filme implements Content {
     }
 
 
+    @Override
+    public int compareTo(Filme filme) {
+        int rating = filme.getRating().compareTo(this.getRating());
+
+        return rating;
+    }
 }
+
+

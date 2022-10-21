@@ -51,7 +51,6 @@ public class HTMLGenerator {
                             """;
 
     public void generate(List<Filme> filme) throws IOException {
-        //if(i > 249) { System.out.println("Informe um numero igual ou menor a 149, por favor!"); }
 
     for(int i = 0; i < 249; i++)
          writer.write(String.format(divTemplate, filme.get(i).getTitle(), filme.get(i).getImage(), filme.get(i).getTitle(), filme.get(i).getRating(), filme.get(i).getYear()));

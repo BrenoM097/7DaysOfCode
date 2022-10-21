@@ -2,6 +2,8 @@ package DaysOfCode.demo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,6 +15,7 @@ public class ImdbJsonParser implements JsonParser{
     private final List<String> filmesRating = new ArrayList<>();
 
     private final List<Filme> filmeUnico = new ArrayList<>();
+
 
 
     @Override
@@ -53,7 +56,7 @@ public class ImdbJsonParser implements JsonParser{
     }
     @Override
     public List<Filme> getFilmeList() {
-        return filmeUnico;
+        return  filmeUnico;
     }
 
 }
