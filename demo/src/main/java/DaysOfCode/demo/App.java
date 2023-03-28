@@ -25,7 +25,7 @@ public class App {
             apiClient.connect();
             imdbJsonParser.parseJson(apiClient.getJsonBody());
 
-             //marvelApi.connect();
+            
 
                 if(apiClient.getStatusCode() != SUCESSCODE){
                   throw new RuntimeException("HTTP ERROR CODE: " + apiClient.getStatusCode());
@@ -33,11 +33,6 @@ public class App {
 
              System.out.println("Connection Imdb APi Successful!");
 
-          //  if(marvelApi.getStatusCode() != SUCESSCODE){
-           //     throw new RuntimeException("HTTP ERROR CODE: " + marvelApi.getStatusCode());
-          //  }
-
-            //System.out.println("Connection Marvel APi Successful!");
             Collections.sort(imdbJsonParser.getFilmeList(), Comparator.comparing(Filme::getRating));
 
                  //gera o arquivo .html com os dados do filme + o codigo html e css.
