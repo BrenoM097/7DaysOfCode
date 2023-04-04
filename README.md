@@ -26,8 +26,6 @@ O uso de <7DaysOfCode>:
 Consultar os melhores filmes por rank ou algum outro atributo.
 ```
 
-Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
-
 ## 📫 Contribuindo para <7DaysOfCode>
 Para contribuir com <7DaysOfCode>:
 
