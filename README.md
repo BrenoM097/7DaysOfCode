@@ -34,7 +34,4 @@ Para contribuir com <7DaysOfCode>:
 1. Dicas de melhorias nos comentários.
 2. Me seguindo no Github.
 
-Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
-
-[⬆ Voltar ao topo](#7DaysOfCode)<br>
